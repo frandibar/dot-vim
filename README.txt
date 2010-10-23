@@ -1,5 +1,5 @@
 INSTALL
 
 $ cd $HOME
-$ ln -s init-config/vimrc .vimrc
-$ ln -s init-config/gvimrc .gvimrc
+$ ln -s .vim/vimrc .vimrc
+$ ln -s .vim/gvimrc .gvimrc
