@@ -1,0 +1,21 @@
+# Class
+snippet cl
+	class ${1:`Filename('$1_t', 'name')`} 
+	{
+	public:
+		$1(${2});
+		virtual ~$1();
+	
+	private:
+		${3}
+	};
+snippet scast
+	static_cast<${1}>(${2})${3}
+snippet ccast
+	const_cast<${1}>(${2})${3}
+snippet dcast
+	dynamic_cast<${1}>(${2})${3}
+snippet rcast
+	reinterpret_cast<${1}>(${2})${3}
+snippet il
+	i_L("${1}")${2}
