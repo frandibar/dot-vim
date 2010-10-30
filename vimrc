@@ -63,7 +63,7 @@ colorscheme slate
 highlight LineNr ctermfg=darkgrey guifg=darkgrey 
 highlight CursorLine ctermbg=darkblue term=bold cterm=bold guibg=Grey25
 highlight CursorColumn ctermbg=darkblue term=bold cterm=bold guibg=Grey17
-highlight NonText guibg=black
+highlight NonText guibg=grey10
 " override slate colorscheme for PreProc
 highlight PreProc guibg=black   
 
