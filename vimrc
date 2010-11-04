@@ -1,49 +1,57 @@
 " MY PERSONAL VIM SETTINGS FILE
 
+" general settings
 " This setting must go first because it changes other options as side effect
 set nocompatible            " Make Vim behave in a more useful way instead of being Vi-compatible.
+let mapleader = ","         " set <Leader> value for mappings
 
+" files and backups
 set autowrite               " Write the contents of the file, if it has been modified, when changing buffers.
 set nobackup                " Don't make a backup before overwriting a file.
 set noswapfile              " Don't use a swapfile for the buffer.  Don't use this for big files!
 set autoread                " Automatically read files changed outside of vim
 set hidden                  " Change buffer without saving
 
-set nowrap                  " Don't wrap lines longer than the width of the window on the next line.
-set scrolloff=2             " Minimal number of screen lines to keep above and below the cursor.
-set laststatus=2            " Always have status line for each window.
-set statusline=%f%m%r%h%w\ %y\ %=[buf\ %n]\ %l,%c/%L\ %p%%   " information to show in status line
-set ruler                   " Show the line and column number of the cursor position (commented out since this info was set in statusline)
+" user interface
 set cursorline              " Highlight the screen line of the cursor.
 set number                  " Print the line number in front of each line.
 set listchars=tab:▸\ ,eol:$ " Modify tab char when set list
-set background=dark         " Vim will try to use colors that look good on a dark background.
+set nowrap                  " Don't wrap lines longer than the width of the window on the next line.
+set scrolloff=2             " Minimal number of screen lines to keep above and below the cursor.
+set showcmd                 " Show (partial) command in the last line of the screen.
+set showmatch               " When a bracket is inserted, briefly jump to the matching one.
 
 set wildmenu                " Possible matches are shown just above the command line
 set wildmode=list:longest   " Complete longest common string, then list alternatives
 set wildignore=*.o,*.obj,*.swp,*.bak,*.pyc,*.class  " A file that matches these patterns is ignored when completing file or directory names.
 set shellslash              " Use a forward slash when expanding file names.
 
+set mouse=a                 " Enable the use of the mouse for all modes (normal, visual, insert, command
+
+" cursor behavior
 set backspace=indent,eol,start  " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode.
 set expandtab               " Use the appropriate number of spaces to insert a <Tab>
 set shiftwidth=4            " Number of spaces to use for each step of (auto)indent.
 set tabstop=4               " Number of spaces that a <Tab> in the file counts for. 
 set softtabstop=4           " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>. 
 
+" status line
+set laststatus=2            " Always have status line for each window.
+set statusline=%f%m%r%h%w\ %y\ %=[buf\ %n]\ %l,%c/%L\ %p%%   " information to show in status line
+set ruler                   " Show the line and column number of the cursor position (commented out since this info was set in statusline)
+
+" search behavior
 set ignorecase              " Case is ignored for searches
 set smartcase               " Override the ignorecase option if the search pattern contains upper case characters.
 set hlsearch                " When there is a previous search pattern, highlight all its matches.
 set incsearch               " While typing a search command, show where the pattern, as it was typed so far, matches. 
 set nowrapscan              " Searches wrap around the end of the file.
-set showcmd                 " Show (partial) command in the last line of the screen.
-set showmatch               " When a bracket is inserted, briefly jump to the matching one.
 
+" misc
 set formatprg=par           " Use par as the external text formatting program
 set makeprg=make\ %<        " Program to use for the :make command.
 set tags=~/devel/src/**/tags,/usr/include/tags
 set cindent                 " Enables automatic C program indenting.
-
-set mouse=a                 " Enable the use of the mouse for all modes (normal, visual, insert, command
 
 " These lines must be called before enabling filetype detection
 " Pathogen plugin
@@ -55,8 +63,8 @@ filetype plugin on          " Enable filetype plugins.
 filetype indent on
 syntax enable               " Turn on syntax highlighting
 
-let mapleader = ","         " set <Leader> value for mappings
-
+" colors and fonts
+set background=dark         " Vim will try to use colors that look good on a dark background.
 colorscheme slate
 
 " The following highlights must go after setting the colorscheme to avoid being overriden.
@@ -96,9 +104,10 @@ augroup comment_autocomplete
     autocmd FileType * setlocal formatoptions-=o
 augroup END
 
-" Add lilypond syntax file
+" add lilypond syntax file
 autocmd! BufReadPre *.ly,*.ily set runtimepath+=/usr/share/lilypond/2.12.3/vim/
 
+" mappings
 nnoremap <Leader>; ;
 nnoremap ; :
 
