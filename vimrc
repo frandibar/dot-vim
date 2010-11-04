@@ -71,6 +71,9 @@ highlight PreProc guibg=black
 autocmd! BufWritePost .vimrc nested source % 
 autocmd! BufWritePost _vimrc nested source %  
 
+" autocommands for file types
+autocmd! Filetype html source ~/.vim/bundle/frandibar/source/html.vim
+
 augroup python_filetype
     autocmd!
     " Set omni completion function for python files
@@ -79,9 +82,11 @@ augroup python_filetype
     autocmd FileType python setlocal cursorcolumn
 augroup END
 
-" autocommands for file types
-autocmd! Filetype plaintex,tex source ~/.vim/bundle/frandibar/source/latex.vim
-autocmd! Filetype html source ~/.vim/bundle/frandibar/source/html.vim
+augroup tex_filetype
+    autocmd! Filetype plaintex,tex source ~/.vim/bundle/frandibar/source/latex.vim
+    " attention: pdflatex must be installed
+    autocmd! Filetype tex setlocal makeprg=pdflatex\ %
+augroup END
 
 " disable comment autocomplete
 augroup comment_autocomplete
