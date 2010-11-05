@@ -131,28 +131,34 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" scroll mode with ctrl key
-map <c-up> <c-y>
-map <c-down> <c-e>
-map <c-k> <c-y>
-map <c-j> <c-e>
+" horizontal scroll mode with shift ctrl key
+nmap <s-c-left> zh
+nmap <s-c-right> zl
+nmap <s-c-h> zh
+nmap <s-c-l> zl
+
+" vertical scroll mode with ctrl key
+nmap <c-up> <c-y>
+nmap <c-down> <c-e>
+nmap <c-k> <c-y>
+nmap <c-j> <c-e>
 
 " smooth scrolling
-map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
-map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
 " mappings to keep the current visual block selection active after changing indentation
 vmap > >gv
 vmap < <gv
 
 " mapping to remove highlight search
-map <Leader>/ :nohlsearch<CR>
+nmap <Leader>/ :nohlsearch<CR>
 
 " see vimtip #159        
 " for search and replace
-map <F4> :%s//g<Left><Left>
+nmap <F4> :%s//g<Left><Left>
 " to replace word under cursor
-map <S-F4> :%s/<C-r><C-w>//g<Left><Left>
+nmap <S-F4> :%s/<C-r><C-w>//g<Left><Left>
 " finds to the next occurence of the previously visually selected text.
 vmap / y:execute "/".escape(@",'[]/\.*')<CR>
 " replace selected text
@@ -165,9 +171,9 @@ vnoremap <C-S>		<C-C>:update<CR>
 inoremap <C-S>		<C-O>:update<CR>
 
 " Mapping to change directory to the file being edited
-map <silent> <Leader>cd :cd %:p:h<CR>
+nmap <silent> <Leader>cd :cd %:p:h<CR>
 " Mapping to add the current file path when openning a file
-map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Always add the current file's directory to the path if not already there
 autocmd! BufRead *
