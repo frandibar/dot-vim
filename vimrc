@@ -34,6 +34,7 @@ set expandtab               " Use the appropriate number of spaces to insert a <
 set shiftwidth=4            " Number of spaces to use for each step of (auto)indent.
 set tabstop=4               " Number of spaces that a <Tab> in the file counts for. 
 set softtabstop=4           " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>. 
+set virtualedit=block       " Allow positioning cursor where no character exists in visual mode
 
 " status line
 set laststatus=2            " Always have status line for each window.
@@ -86,8 +87,9 @@ augroup python_filetype
     autocmd!
     " Set omni completion function for python files
     autocmd FileType python set omnifunc=pythoncomplete#Complete
-    " Set cursorcolumn for python files
+    " Set cursorcolumn for python and scheme files
     autocmd FileType python setlocal cursorcolumn
+    autocmd FileType scheme setlocal cursorcolumn
 augroup END
 
 augroup tex_filetype
